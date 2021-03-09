@@ -1,13 +1,8 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Dice extends StatefulWidget {
-  Dice({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _DiceState createState() => _DiceState();
 }
@@ -29,19 +24,15 @@ class _DiceState extends State<Dice> {
     var _width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.grey[900],
-      appBar: AppBar(
-        elevation: 0.0,
-        title: Text(widget.title,
-            style: TextStyle(
-              fontSize: _width / 12,
-            )),
-        centerTitle: true,
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('DICE PLAY',
+                style: TextStyle(
+                  fontSize: _width / 12,
+                )),
+            SizedBox(height: 20),
             Card(
               color: Colors.white,
               margin: EdgeInsets.all(20),
@@ -71,30 +62,22 @@ class _DiceState extends State<Dice> {
                       ),
                     ),
                   ),
-                  Card(
-                    elevation: 0,
-                    margin: EdgeInsets.all(8),
-                    color: Colors.white,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.only(left: 10),
-                          child: Text(
-                            'You Got  -  ${_randomNumber + _randomNumber2}',
-                            style: TextStyle(
-                                color: Colors.black, fontSize: _width / 15),
-                          ),
-                        ),
-                        ElevatedButton(
-                          // co: Colors.orange,
-                          // padding: EdgeInsets.all(20),
-                          child: Text('Tap To Repeat'),
-                          onPressed: _randomCounter,
-                        ),
-                      ],
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'You Got  :  ${_randomNumber + _randomNumber2}',
+                      style:
+                          TextStyle(color: Colors.black, fontSize: _width / 15),
                     ),
-                  )
+                  ),
+                  Container(
+                    width: _width,
+                    height: 50,
+                    child: ElevatedButton(
+                      child: Text('Tap To Repeat'),
+                      onPressed: _randomCounter,
+                    ),
+                  ),
                 ],
               ),
             ),

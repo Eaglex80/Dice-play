@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
       title: 'Dice Play',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryColor: Colors.grey[900],
+        primaryColor: Colors.orange,
         brightness: Brightness.dark,
+        canvasColor: Colors.black
       ),
-      home:  Dice(title: 'Dice Play'),
+      home:  Dice(),
     );
   }
 }
